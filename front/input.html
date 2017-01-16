@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>入力画面</title>
+		<script src="js/input.js"></script>
+	</head>
+	<body>
+		<p>入力画面</p>
+		<div id="buttons" style="display:none">
+			<input type="button" value="変換" onclick="changeData()" id="convert">
+			<input type="button" value="保存" onclick="saveData()" id="save">
+		</div>
+		<input type="button" onclick=" location.href='index.html'; " value="戻る"></br>
+		<textarea rows="10" cols="50" onkeydown="openButton()" id="data"></textarea>
+	</body>
+</html>
