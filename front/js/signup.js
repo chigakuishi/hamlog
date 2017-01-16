@@ -1,11 +1,16 @@
-functionn touroku(){
-	if (document.getElementById("passward") != document.getElementById("passreconfirm")){
-		alert("パスワードが一致しません。");return false;
-	}
+function fieldChanged(){
+	
+}
 
-var data={};
-data.mailaddress=document.getElementById("mail").value;
-data.callsign=document.getElementById("callsign");
-data.password=document.getElementById("password");
-var json=JSON.stringify(data);
-console.log(json);
+function touroku(){
+	if (document.getElementById("passward") != document.getElementById("passreconfirm")){
+		alert("パスワードが一致しません。");
+		return false;
+	}
+	var data={};
+	data.mailaddress=document.getElementById("mailaddress").value;
+	data.callsign=document.getElementById("callsign").value;
+	data.password=document.getElementById("password").value;
+	var json=JSON.stringify(data);
+	console.log(json);
+}

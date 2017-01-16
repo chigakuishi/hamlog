@@ -1,4 +1,4 @@
-loggin(){
+function login(){
 	var data={};
 	data.callsign="user_id";
 	data.password="password";
