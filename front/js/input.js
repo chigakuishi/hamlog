@@ -22,7 +22,7 @@ function changeData(){
 	sentences = document.getElementById('data').value;
 	dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
-		if(dataList[i].match(/^-{3,}$)){	//"---"で区切る
+		if(dataList[i].match(/^-{3,}$/)){	//"---"で区切る
 		  calls.push(obj);
 			obj ={
 				"main":{},
