@@ -1,10 +1,17 @@
 var sentences;
-var obj = {};
+var calls =[];
 var ele ={};
+var obj ={
+  "main":{	/*必須の項目*/ },
+  "option":{	/*よくある項目*/ },
+  "other":{	/*その他の項目 "work":str */ },
+	"other_free":[	/*単語など "","","","","" */	]
+};
 
 function openButton(){ //テキストに入力するとボタンが出現する
 	document.getElementById('buttons').style.display="block";	
-	document.getElementById('save').disabled="disabled";	
+	document.getElementById('save').disabled="disabled";
+	document.getElementById('convert').disabled ="";	
 }
 
 function changeData(){ 
@@ -14,54 +21,65 @@ function changeData(){
 	//データの変換
 	sentences = document.getElementById('data').value;
 	dataList = sentences.split(/\n/);
-	for(var i=0;i<dataList.length;i=i+1){
-		ele = dataList[i].split(":");
-		if(ele[0]=="date"||ele[0]=="freq"||ele[0]=="time"||ele[0]=="rst"||ele[0]=="power"){
-			obj[ele[0]] = Number(ele[1]);
-		}else{	
-			obj[ele[0]] = ele[1];
-		}
+	for(var i=0;i<dataList.length;i++){
+		if(dataList[i].match(/^-{3,}$/)){	//"---"で区切る
+		  calls.push(obj);
+			obj ={
+				"main":{},
+				"option":{},
+				"other":{},
+				"other_free":[]
+			};
+		}else if(! dataList[i].match(/:/)){	//":"がないもの
+			obj["other_free"].push(dataList[i]);
+		}else{	//":"があるもの
+			ele = dataList[i].split(":");
+			if(	//mainに入れる要素
+				ele[0]=="callsign"||
+				ele[0]=="date"||
+				ele[0]=="time"||
+				ele[0]=="qth"||
+				ele[0]=="band"||
+				ele[0]=="mode"||
+				ele[0]=="my_qth"||
+				ele[0]=="my_rst"||
+				ele[0]=="rst"
+			){
+				if(	//mainの中の数字扱いのvalue
+					ele[0]=="date"||
+					ele[0]=="freq"||
+					ele[0]=="time"||
+					ele[0]=="rst"||
+					ele[0]=="band"||
+					ele[0]=="my_rst"
+				){	//数字に変換
+					obj["main"][ele[0]] = Number(ele[1]);
+				}else{	//文字列のまま
+					obj["main"][ele[0]] = ele[1];
+				}
+			}else if(	//optionに入れる要素
+				ele[0]=="name"||
+				ele[0]=="ant"||
+				ele[0]=="rig"||
+				ele[0]=="power"||
+				ele[0]=="qsl"||
+				ele[0]=="first"||
+				ele[0]=="home"||
+				ele[0]=="aniv"||
+				ele[0]=="oneway"
+			){	//全部文字列で入れる
+				obj["option"][ele[0]] = ele[1];	
+			}else{	//otherに入れる要素（すべて文字列）
+				obj["other"][ele[0]] = ele[1];
+			}
+		}	
 	}
-	console.log(JSON.stringify(obj));
+	console.log(JSON.stringify(calls));
 }
 
-function saveData(){ //保存ボタンを消し、リロードする
+function saveData(){
+	// 保存ボタンを消し、リロードする
 	document.getElementById('save').disabled ="disabled";	
 	document.getElementById('convert').disabled ="";	
-	window.location.reload();
+	window.location.reload();	
 }
-
-/*
-var obj ={
-  "main":{
-    "callsign":str,
-    "date":int,
-    "time":int,
-    "gth":str,
-    "freq":double,
-    "mode":str,
-    "my-gth":str,
-    "rst":int,
-  },
-
-  "option":{
-    "name":str,
-    "ant":obj,
-    "rig":str,
-    "power":double,
-    "qsl":bool,
-    "first":bool,
-    "home":str,
-    "aniv":str,
-    "oneway":str,
-  },
-
-  "other":{
-		"work":str,
-  },
-	
-	"other-free":{
-		"","","","",""		
-	}
-}
-*/

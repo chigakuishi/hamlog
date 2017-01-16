@@ -1,9 +1,5 @@
-function fieldChanged(){
-	
-}
-
 function touroku(){
-	if (document.getElementById("passward") != document.getElementById("passreconfirm")){
+	if (document.getElementById("password").value !== document.getElementById("passreconfirm").value){
 		alert("パスワードが一致しません。");
 		return false;
 	}
