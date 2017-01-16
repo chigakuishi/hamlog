@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>サインアップ</title>
+		<link rel="STYLESHEET" href="todo.css" type="text/css">
+		<script type="text/javascript" src="js/signup.js"></script>
+	</head>
+	<body>
+		<div align="center">
+		<h1>サインアップ</h1>
+		<hr>
+		<table border="0">
+			<tr>
+				<th class="login_field">
+					メールアドレス
+				</th>
+				<td class="login_field">
+					<input type="text" name="mialaddress" size="24" id="mailaddress">
+				</td>
+			</tr>
+
+			<tr>
+				<th class="login_field">
+					コールサイン
+				</th>
+				<td class="login_field">
+					<input type="text" name="callsign" size="24" id="callsign">
+				</td>
+			</tr>
+			
+			<tr>
+				<th class="login_field">
+					パスワード
+				</th>
+				<td class="login_field">
+					<input type="password" name="password" size="24" id="password">
+				</td>
+			</tr>
+			<tr>
+				<th class="login_field">
+					パスワード(再確認用)
+				</th>
+				<td class="login_field">
+					<input type="password" name="passreconfirm" size="24" id="passreconfrim" onkeyup="fieldChanged();" onchange="fieldChanged();">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="signup_button">
+				<input type="button" value="サインアップ" id="signup" onclick="touroku()">
+				</td>
+			</tr>
+		</table>
+ 		</div>
+	</body>
+</html>
