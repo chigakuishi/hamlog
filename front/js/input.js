@@ -27,7 +27,7 @@ function changeData(){
 			ele = dataList[i].split(":");
 			if(	//mainに入れる要素
 				ele[0]=="callsign"||
-				ele[0]=="data"||
+				ele[0]=="date"||
 				ele[0]=="time"||
 				ele[0]=="qth"||
 				ele[0]=="band"||
@@ -61,13 +61,14 @@ function changeData(){
 			}else{	//otherに入れる要素（すべて文字列）
 				obj["other"][ele[0]] = ele[1];
 			}
-		}
+		}	
+	}
 	console.log(JSON.stringify(obj));
 }
 
-function saveData(){ //保存ボタンを消し、リロードする
+function saveData(){
+	// 保存ボタンを消し、リロードする
 	document.getElementById('save').disabled ="disabled";	
 	document.getElementById('convert').disabled ="";	
-	window.location.reload();
+	window.location.reload();	
 }
-
