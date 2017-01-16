@@ -22,8 +22,14 @@ function changeData(){
 	sentences = document.getElementById('data').value;
 	dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
-		if(str.match(/---/)){	//"---"で区切る
+		if(dataList[i].match(/---/)){	//"---"で区切る
 		  calls.push(obj);
+			obj ={
+				"main":{},
+				"option":{},
+				"other":{},
+				"other_free":[]
+			};
 		}else if(! dataList[i].match(/:/)){	//":"がないもの
 			obj["other_free"].push(dataList[i]);
 		}else{	//":"があるもの
@@ -68,7 +74,7 @@ function changeData(){
 			}
 		}	
 	}
-	console.log(JSON.stringify(obj));
+	console.log(JSON.stringify(calls));
 }
 
 function saveData(){
