@@ -7,11 +7,30 @@ var obj ={
   "other":{	/*その他の項目 "work":str */ },
 	"other_free":[	/*単語など "","","","","" */	]
 };
+var waitJson="";
+
+function getCookie(c_name){
+  var st="";
+  var ed="";
+  if(document.cookie.length>0){
+    // クッキーの値を取り出す
+    st=document.cookie.indexOf(c_name + "=");
+    if(st!=-1){
+      st=st+c_name.length+1;
+      ed=document.cookie.indexOf("; ",st);
+      if(ed==-1) ed=document.cookie.length;
+      // 値をデコードして返す
+      return unescape(document.cookie.substring(st,ed));
+    }
+  }
+  return "";
+}
 
 function openButton(){ //テキストに入力するとボタンが出現する
 	document.getElementById('buttons').style.display="block";	
 	document.getElementById('save').disabled="disabled";
 	document.getElementById('convert').disabled ="";	
+  waitJson="";
 }
 
 function changeData(){ 
@@ -74,12 +93,37 @@ function changeData(){
 			}
 		}	
 	}
-	console.log(JSON.stringify(calls));
+  var jsonObj={};
+  jsonObj["data"]=calls;
+  jsonObj["session"]=getCookie("session");
+	console.log(JSON.stringify(jsonObj));
+  waitJson=jsonObj;
 }
 
 function saveData(){
 	// 保存ボタンを消し、リロードする
 	document.getElementById('save').disabled ="disabled";	
-	document.getElementById('convert').disabled ="";	
-	window.location.reload();	
+	document.getElementById('convert').disabled ="";
+  $.ajax({
+    type:"post",	
+    url:"https://re75.info/hamlog/api/create.php",	
+    data:JSON.stringify(waitJson),	
+    contentType: 'application/json',	
+    dataType: "json",	
+    success: function(obj) {	
+      if (obj.status) {
+        alert("送信しました");
+        window.location.reload();	
+      }else{
+        alert("エラーです．やり直してください．");
+      }
+    },
+    error: function(err) {	
+      alert("エラーです．やり直してください．");
+      console.log(err);
+    },
+    complete: function() {	
+      button.attr("disabled", false);  
+    }
+  });
 }

@@ -23,11 +23,11 @@
   for($i=0;$i<count($obj["data"]);$i++){
     $stmt=$pdo->prepare(
       "insert into qsos(station,callsign,`date`,time,qth,my_qth,band,`mode`,rst,my_rst) ".
-      " values (:mycs,:cs,:day,:time,:qth,:my_qth,:band,:mode,:rst,:my_rst);"
+      " values (:mycs,:cs,:date,:time,:qth,:my_qth,:band,:mode,:rst,:my_rst);"
     );
     $stmt->bindValue(":mycs"  ,$obj["cs"],PDO::PARAM_STR);
     $stmt->bindValue(":cs"    ,$obj["data"][$i]["main"]["callsign"],PDO::PARAM_STR);
-    $stmt->bindValue(":day"   ,$obj["data"][$i]["main"]["day"],PDO::PARAM_INT);
+    $stmt->bindValue(":date"  ,$obj["data"][$i]["main"]["date"],PDO::PARAM_INT);
     $stmt->bindValue(":time"  ,$obj["data"][$i]["main"]["time"],PDO::PARAM_INT);
     $stmt->bindValue(":qth"   ,$obj["data"][$i]["main"]["qth"],PDO::PARAM_STR);
     $stmt->bindValue(":my_qth",$obj["data"][$i]["main"]["my_qth"],PDO::PARAM_STR);

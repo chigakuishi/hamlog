@@ -1,41 +1,41 @@
 <html>
-	<head>
-		<meta charset=utf-8>
-		<title>ログイン</title>
-		<link rel="STYLESHEET" href="todo.css" type="text/css">
-		<script type="text/javascript" src="js/login.js"></script>
-	</head>
+  <head>
+    <meta charset="utf-8">
+    <title>ログイン</title>
+    <link rel="stylesheet" href="todo.css" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+  </head>
   <body>
-   	<div align="center">
-  	<h1>ログイン</h1>
-    <hr>
-		<table border="0">
-			<form action="list.html">
-				<tr>
-				<th class="login_field">
-					コールサイン
-				</th>
-				<td class="login_field">
-					<input type="text" name="user_id" size="24" id="user_id">
-				</td>
-				</tr>
+    <div align="center">
+      <h1>ログイン</h1>
+      <hr>
+      <table border="0">
+        <form action="list.html">
+          <tr>
+            <th class="login_field">
+              コールサイン
+            </th>
+            <td class="login_field">
+              <input type="text" name="user_id" size="24" id="user_id">
+            </td>
+          </tr>
 
-				<tr>
-					<th class="login_field">
-						パスワード
-					</th>
-					<td class="login_field">
-						<input type="password" name="password" size="24" id="password">
-					</td>
-					</tr>
-	
-				<tr>
-					<td class="login_button">
-						<input type="button" value="ログイン" id="login">
-					</td>
-				</tr>
-			</form>
-		</table>
-		</div>
-	</body>
+          <tr>
+            <th class="login_field">
+              パスワード
+            </th>
+            <td class="login_field">
+              <input type="password" name="password" size="24" id="password">
+            </td>
+          </tr>
+          <tr>
+            <td class="login_button">
+              <input type="button" value="ログイン" id="login" onClick="loginStart()">
+            </td>
+          </tr>
+        </form>
+      </table>
+    </div>
+  </body>
 </html>
