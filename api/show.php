@@ -34,7 +34,7 @@
       unset($dat[$i][$ii]);
     }
   }
-  $output["data"]["main"]=$dat;
+  $output["data"]["main"]=$dat[0];
   
   $stmt=$pdo->prepare("select question,answer from details where qso=:id AND type='option';");
   $stmt->bindValue(":id",$obj["qso"],PDO::PARAM_INT);
@@ -69,6 +69,23 @@
     }
   }
   $output["data"]["other"]=$dat;
+
+  $stmt=$pdo->prepare("select memo from memos where qso=:id;");
+  $stmt->bindValue(":id",$obj["qso"],PDO::PARAM_INT);
+  if(!$stmt->execute()){
+    http_response_code(400);
+    print '{"status":false,"message":"cannot select"}';
+    $pdo->rollBack();
+    exit();
+  }
+
+  $dat=$stmt->fetchAll();
+  for($i=0;$i<count($dat);$i++){
+    for($ii=count($dat[$i])/2 -1;$ii>=0;$ii--){
+      unset($dat[$i][$ii]);
+    }
+  }
+  $output["data"]["other_free"]=$dat;
   $output["status"]=true;
   print json_encode($output);
 ?>

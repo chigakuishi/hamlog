@@ -4,15 +4,17 @@
 		<meta charset="utf-8">
 		<title>データ一覧</title>
 		<link rel="STYLESHEET" href="todo.css" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/index.js"></script>
 	</head>
 	<body>
 		<h1>データ一覧</h1>
 		<hr>
 		<input type="button" value="新しく入力" onclick="location.href='input.html'"></br>
-		<table border="1">
-		<tr>
-			<th>日付</th><th>日時</th><th>場所</th><th>周波数</th><th>変調方式</th>		
-		</tr>
+		<table border="1" id="datatable">
+      <tr>
+        <th>日付</th><th>時間</th><th>コールサイン</th><th>場所</th><th>周波数</th><th>変調方式</th><th>詳細</th>		
+      </tr>
 		</table>
 	</body>
 </html>

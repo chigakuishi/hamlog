@@ -1,3 +1,6 @@
+if(getCookie("session")==""){
+  window.location.href="login.html";
+}
 var sentences;
 var calls =[];
 var ele ={};

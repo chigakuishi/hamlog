@@ -1,9 +1,54 @@
-var obj = JSON.parse('{"status":true,"data":[{"id":"2","station":"JI1XRF","callsign":"7m3url","date":"20160306","time":"215","qth":"\u6803\u6728\u770c\u9e7f\u6cbc\u5e02","my_qth":"\u795e\u5948\u5ddd\u770c\u85e4\u6ca2\u5e02","band":"144","mode":"CW","rst":"599","my_rst":"599"},{"id":"1","station":"JI1XRF","callsign":"ji1xrf","date":"20160305","time":"1215","qth":"\u6771\u4eac\u90fd\u4e16\u7530\u8c37\u533a","my_qth":"\u795e\u5948\u5ddd\u770c\u85e4\u6ca2\u5e02","band":"430","mode":"SSB","rst":"59","my_rst":"59"}]}');
+if(getCookie("session")==""){
+  window.location.href="login.html";
+}
 
-for(var i=0;i<obj.data.lenth;i++){
-	document.getElementById("datatable").innerHTML += "<th>";
-	for(key in obj.data){
-		document.getElementById("datatable").innerHTML += "<td>"+obj.data[key]+"</td>";
-	}
-	document.getElementById("datatable").innerHTML += "</th>";
+window.onload=()=>{
+  $.ajax({
+    type:"post",	
+    url:"https://re75.info/hamlog/api/index.php",	
+    data:JSON.stringify({"session":getCookie("session")}),	
+    contentType: 'application/json',	
+    dataType: "json",	
+    success: function(obj) {	
+      console.log(obj);
+      if (obj.status) {
+        for(var i=0;i<obj.data.length;i++){
+          $("#datatable").append(
+            "<tr>"+
+            "<td>"+obj.data[i].date+"</td>"+
+            "<td>"+obj.data[i].time+"</td>"+
+            "<td>"+obj.data[i].callsign+"</td>"+
+            "<td>"+obj.data[i].qth+"</td>"+
+            "<td>"+obj.data[i].band+"</td>"+
+            "<td>"+obj.data[i].mode+"</td>"+
+            "<td><a href='show.html#"+obj.data[i].id+"'> Click </a></td>"+
+            "</tr>"
+          );
+        }
+      }else{
+        alert("エラーです．やり直してください．");
+        console.log(err);
+      }
+    },
+    error: function(err) {	
+      alert("エラーです．やり直してください．");
+      console.log(err);
+    } 
+  });
+}
+function getCookie(c_name){
+  var st="";
+  var ed="";
+  if(document.cookie.length>0){
+    // クッキーの値を取り出す
+    st=document.cookie.indexOf(c_name + "=");
+    if(st!=-1){
+      st=st+c_name.length+1;
+      ed=document.cookie.indexOf("; ",st);
+      if(ed==-1) ed=document.cookie.length;
+      // 値をデコードして返す
+      return unescape(document.cookie.substring(st,ed));
+    }
+  }
+  return "";
 }
