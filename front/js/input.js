@@ -14,7 +14,7 @@ function changeData(){
 	dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i=i+1){
 		ele = dataList[i].split(":");
-		datas[ele[0]] = ele[1];
+		datas['"'+ele[0]+'"'] = ele[1];
 	}
 }
 
@@ -50,7 +50,7 @@ var obj ={
   },
 
   "other":{
-		"work": ,
+		"work":str,
   },
 
 	"other-free":{
