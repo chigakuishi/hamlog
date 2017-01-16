@@ -7,9 +7,11 @@ function openButton(){ //テキストに入力するとボタンが出現する
 	document.getElementById('save').disabled="disabled";	
 }
 
-function changeData(){ //
+function changeData(){ 
+	//変換ボタンを消し、保存ボタンを出現させる
 	document.getElementById('convert').disabled ="disabled";	
 	document.getElementById('save').disabled ="";	
+	//データの変換
 	sentences = document.getElementById('data').value;
 	dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i=i+1){
@@ -20,9 +22,10 @@ function changeData(){ //
 			obj[ele[0]] = ele[1];
 		}
 	}
+	console.log(JSON.stringify(obj));
 }
 
-function saveData(){
+function saveData(){ //保存ボタンを消し、リロードする
 	document.getElementById('save').disabled ="disabled";	
 	document.getElementById('convert').disabled ="";	
 	window.location.reload();
