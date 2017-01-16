@@ -3,7 +3,7 @@ use ham;
 drop table if exists stations;
 drop table if exists qsos;
 drop table if exists details;
-drop table if exists memo;
+drop table if exists memos;
 drop table if exists sessions;
 
 create table stations(
@@ -20,11 +20,13 @@ create table sessions(
   `limit` integer not null
 );
 
+insert into sessions(id,station,`limit`) value('848e2cc1c4ab81cdf8754e9315a64ce95187346f9814513e48d02a5fc0dd878b','JI1XRF',99999999999);
+
 create table qsos(
   id integer primary key auto_increment,
   station varchar(10) not null,
   callsign varchar(10) not null,
-  day integer not null, -- yyyymmdd
+  `date` integer not null, -- yyyymmdd
   time integer not null, -- hhmm
   qth varchar(64) not null,
   my_qth varchar(64) not null,
@@ -36,12 +38,13 @@ create table qsos(
 
 create table details(
   id integer primary key auto_increment,
-  qso integer,
+  qso integer not null,
   question varchar(1024) not null,
-  answer varchar(1024) not null
+  answer varchar(1024) not null,
+  `type` varchar(16)
 );
 
-create table memo(
+create table memos(
   id integer primary key auto_increment,
   qso integer,
   memo varchar(1024)

@@ -23,5 +23,6 @@
   }else{
     http_response_code(400);
     print '{"status":false,"message":"wrong pass"}';
+    exit();
   }
 ?>
