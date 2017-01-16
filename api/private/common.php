@@ -14,5 +14,5 @@
   header("Content-Type:text/json; charset=utf-8");
   header('Access-Control-Allow-Origin: *');
   $json_string = file_get_contents('php://input');
-  $obj = json_decode($json_string);
+  $obj = json_decode($json_string,true);
 ?>

@@ -12,6 +12,7 @@ create table stations(
   email varchar(512),
   name varchar(64)
 );
+insert into stations(callsign,password,email,name) values("JI1XRF","a670fbf3abc5cdcfc00892c2518564761d56440f7f0e34d6b1b3d82739e0badf","chigakuishi.soft@gmail.com","小林怜央");
 
 create table sessions(
   id varchar(64) primary key,
