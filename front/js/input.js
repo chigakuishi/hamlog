@@ -10,7 +10,8 @@ var obj ={
 
 function openButton(){ //テキストに入力するとボタンが出現する
 	document.getElementById('buttons').style.display="block";	
-	document.getElementById('save').disabled="disabled";	
+	document.getElementById('save').disabled="disabled";
+	document.getElementById('convert').disabled ="";	
 }
 
 function changeData(){ 
@@ -21,7 +22,9 @@ function changeData(){
 	sentences = document.getElementById('data').value;
 	dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
-		if (! dataList[i].match(/:/)) {	//":"がないもの
+		if(str.match(/---/)){	//"---"で区切る
+		  calls.push(obj);
+		}else if(! dataList[i].match(/:/)){	//":"がないもの
 			obj["other_free"].push(dataList[i]);
 		}else{	//":"があるもの
 			ele = dataList[i].split(":");
@@ -32,7 +35,8 @@ function changeData(){
 				ele[0]=="qth"||
 				ele[0]=="band"||
 				ele[0]=="mode"||
-				ele[0]=="my-qth"||
+				ele[0]=="my_qth"||
+				ele[0]=="my_rst"||
 				ele[0]=="rst"
 			){
 				if(	//mainの中の数字扱いのvalue
@@ -40,7 +44,8 @@ function changeData(){
 					ele[0]=="freq"||
 					ele[0]=="time"||
 					ele[0]=="rst"||
-					ele[0]=="my-rst"
+					ele[0]=="band"||
+					ele[0]=="my_rst"
 				){	//数字に変換
 					obj["main"][ele[0]] = Number(ele[1]);
 				}else{	//文字列のまま
