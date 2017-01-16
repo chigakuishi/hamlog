@@ -2,10 +2,10 @@ var sentences;
 var calls =[];
 var ele ={};
 var obj ={
-  "main":{	//必須の項目 },
-  "option":{	//よくある項目 },
-  "other":{	//その他の項目 "work":str },
-	"other_free":{	//単語など "","","","",""	}
+  "main":{	/*必須の項目*/ },
+  "option":{	/*よくある項目*/ },
+  "other":{	/*その他の項目 "work":str */ },
+	"other_free":[	/*単語など "","","","","" */	]
 };
 
 function openButton(){ //テキストに入力するとボタンが出現する
