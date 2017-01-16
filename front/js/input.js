@@ -22,7 +22,7 @@ function changeData(){
 	dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
 		if (! dataList[i].match(/:/)) {	//":"がないもの
-			obj["other_free"] = dataList[i];
+			obj["other_free"].push(dataList[i]);
 		}else{	//":"があるもの
 			ele = dataList[i].split(":");
 			if(	//mainに入れる要素
