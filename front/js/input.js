@@ -1,20 +1,24 @@
 var sentences;
-var datas = {};
+var obj = {};
 var ele ={};
 
-function openButton(){
+function openButton(){ //テキストに入力するとボタンが出現する
 	document.getElementById('buttons').style.display="block";	
 	document.getElementById('save').disabled="disabled";	
 }
 
-function changeData(){
+function changeData(){ //
 	document.getElementById('convert').disabled ="disabled";	
 	document.getElementById('save').disabled ="";	
 	sentences = document.getElementById('data').value;
 	dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i=i+1){
 		ele = dataList[i].split(":");
-		datas['"'+ele[0]+'"'] = ele[1];
+		if(ele[0]=="date"||ele[0]=="freq"||ele[0]=="time"||ele[0]=="rst"||ele[0]=="power"){
+			obj[ele[0]] = Number(ele[1]);
+		}else{	
+			obj[ele[0]] = ele[1];
+		}
 	}
 }
 
@@ -52,7 +56,7 @@ var obj ={
   "other":{
 		"work":str,
   },
-
+	
 	"other-free":{
 		"","","","",""		
 	}
