@@ -3,7 +3,7 @@ function loginStart(){
 	data.callsign=$("#user_id").val();
 	data.password=$("#password").val();
 	var json=JSON.stringify(data);
-
+  
   $.ajax({
     type:"post",	
     url:"https://re75.info/hamlog/api/login.php",	
@@ -21,9 +21,6 @@ function loginStart(){
     error: function(err) {	
       alert("ログインエラー\nリトライしてください");
       console.log(err);
-    },
-    complete: function() {	
-      button.attr("disabled", false);  
     }
   });
 }
