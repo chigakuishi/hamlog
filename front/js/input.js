@@ -67,10 +67,10 @@ function changeData(){
 	document.getElementById('save').disabled ="";	
 	//データの変換
 	sentences = document.getElementById('data').value;
-	sentences = sentences.replace(/([1-5][0-9])\/([1-5][0-9])/,(m,p1,p2)=>(
+	sentences = sentences.replace(/([1-5][0-9])\/([1-5][0-9])/g,(m,p1,p2)=>(
     "my_rst:"+p1+"\nrst:"+p2
   ));
-  sentences = sentences.replace("cs:","callsign:");
+  sentences = sentences.replace(/cs:/g,"callsign:");
 	document.getElementById('data').value = sentences;
   dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
