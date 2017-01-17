@@ -7,14 +7,26 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/index.js"></script>
 	</head>
-	<body>
-		<h1>データ一覧</h1>
-		<hr>
-		<input type="button" value="新しく入力" onclick="location.href='input.html'"></br>
-		<table border="1" id="datatable">
-      <tr>
-        <th>日付</th><th>時間</th><th>コールサイン</th><th>場所</th><th>周波数</th><th>変調方式</th><th>詳細</th>		
-      </tr>
-		</table>
+	<body>                           
+    <center>
+      <h1>データ一覧</h1>
+      <hr>
+      <table>
+        <tr>
+          <td>
+            <input type="button" value="新しく入力" onclick="location.href='input.html'"></br>
+            <table border="1" id="datatable">
+              <tr>
+                <th>日付</th><th>時間</th><th>コールサイン</th><th>場所</th><th>周波数</th><th>変調方式</th><th>詳細</th>		
+              </tr>
+            </table>
+          </td>
+          <td>
+            <a class="twitter-timeline"  href="https://twitter.com/search?q=E%E3%82%B9%E3%83%9D" data-widget-id="821150763967651840">Eスポに関するツイート</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </td>
+        </tr>
+      </table>
+    </center>
 	</body>
 </html>

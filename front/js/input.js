@@ -11,7 +11,10 @@ var obj ={
 	"other_free":[	/*単語など "","","","","" */	]
 };
 var waitJson="";
-
+window.onload=()=>{
+  $("#tmp").val(localStorage.tmp);
+  $("#data").val(localStorage.edit);
+}
 function getCookie(c_name){
   var st="";
   var ed="";
@@ -29,7 +32,28 @@ function getCookie(c_name){
   return "";
 }
 
+function saveTmp(){
+  localStorage.tmp=$("#tmp").val();
+}
+
+function useTmp(){
+  var now = new Date();
+  var edit=$("#data").val();
+  var tmp=$("#tmp").val();
+  if(edit.slice(-1)!='\n' && edit.length){
+    edit+='\n';
+  }
+  if(tmp.slice(-1)!='\n'){
+    tmp+='\n';
+  }
+  tmp=tmp.replace(/__today__/,String(now.getFullYear()+( "0"+( now.getMonth()+1 ) ).slice(-2)+("0"+now.getDate() ).slice(-2)));
+  tmp=tmp.replace(/__now__/,String(("0"+now.getHours()).slice(-2)+("0"+now.getMinutes()).slice(-2) ));
+  console.log(edit+tmp);
+  $("#data").val(edit+tmp);
+  $("#data").focus();
+}
 function openButton(){ //テキストに入力するとボタンが出現する
+  localStorage.edit=$("#data").val();
 	document.getElementById('buttons').style.display="block";	
 	document.getElementById('save').disabled="disabled";
 	document.getElementById('convert').disabled ="";	
@@ -37,12 +61,18 @@ function openButton(){ //テキストに入力するとボタンが出現する
 }
 
 function changeData(){ 
+  calls=[];
 	//変換ボタンを消し、保存ボタンを出現させる
 	document.getElementById('convert').disabled ="disabled";	
 	document.getElementById('save').disabled ="";	
 	//データの変換
 	sentences = document.getElementById('data').value;
-	dataList = sentences.split(/\n/);
+	sentences = sentences.replace(/([1-5][0-9])\/([1-5][0-9])/,(m,p1,p2)=>(
+    "my_rst:"+p1+"\nrst:"+p2
+  ));
+  sentences = sentences.replace("cs:","callsign:");
+	document.getElementById('data').value = sentences;
+  dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
 		if(dataList[i].match(/^-{3,}$/)){	//"---"で区切る
 		  calls.push(obj);
@@ -55,7 +85,7 @@ function changeData(){
 		}else if(! dataList[i].match(/:/)){	//":"がないもの
 			obj["other_free"].push(dataList[i]);
 		}else{	//":"があるもの
-			ele = dataList[i].split(":");
+			ele = dataList[i].split(/\s?:\s?/);
 			if(	//mainに入れる要素
 				ele[0]=="callsign"||
 				ele[0]=="date"||
@@ -116,6 +146,7 @@ function saveData(){
     success: function(obj) {	
       if (obj.status) {
         alert("送信しました");
+        localStorage.edit="";
         window.location.reload();	
       }else{
         alert("エラーです．やり直してください．");
@@ -124,9 +155,6 @@ function saveData(){
     error: function(err) {	
       alert("エラーです．やり直してください．");
       console.log(err);
-    },
-    complete: function() {	
-      button.attr("disabled", false);  
-    }
+    } 
   });
 }

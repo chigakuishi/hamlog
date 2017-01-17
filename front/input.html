@@ -10,11 +10,13 @@
 	<body>
 		<h1>入力画面</h1>
 		<hr>
+		<input type="button" id="main"  onKeyPress="return pushEnter(event);" onclick=" location.href='index.html'; " value="戻る"></br>
+    <textarea rows="10" onkeydown="saveTmp();" cols="20" id="tmp"></textarea>
+		<input type="button" onclick="useTmp()" value="テンプレートを使う"></br>
 		<div id="buttons" style="display:none">
 			<input type="button" value="変換" onclick="changeData()" id="convert">
 			<input type="button" value="保存" onclick="saveData()" id="save">
 		</div>
-		<input type="button" onclick=" location.href='index.html'; " value="戻る"></br>
-		<textarea rows="10" cols="50" onkeydown="openButton()" id="data"></textarea>
+    <textarea rows="20" cols="50" onkeydown="openButton()" id="data"></textarea>
 	</body>
 </html>
