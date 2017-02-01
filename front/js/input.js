@@ -1,6 +1,12 @@
 if(getCookie("session")==""){
   window.location.href="login.html";
 }
+var def={
+  "main":{
+    "my_qth":"東京都世田谷区",
+    "qth":"不明"
+  }
+};
 var sentences;
 var calls =[];
 var ele ={};
@@ -61,6 +67,7 @@ function openButton(){ //テキストに入力するとボタンが出現する
 }
 
 function changeData(){ 
+  var sday;
   calls=[];
 	//変換ボタンを消し、保存ボタンを出現させる
 	document.getElementById('convert').disabled ="disabled";	
@@ -75,6 +82,9 @@ function changeData(){
   dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
 		if(dataList[i].match(/^-{3,}$/)){	//"---"で区切る
+      obj.main.my_qth = obj.main.my_qth ||def.main.my_qth;
+      obj.main.qth = obj.main.qth ||def.main.my_qth;
+      sday = obj.main.date;
 		  calls.push(obj);
 			obj ={
 				"main":{},
@@ -83,7 +93,11 @@ function changeData(){
 				"other_free":[]
 			};
 		}else if(! dataList[i].match(/:/)){	//":"がないもの
-			obj["other_free"].push(dataList[i]);
+      if(dataList[i] == "\\sday" || dataList[i]=="\\SDAY"){
+        obj.main.date = sday;
+      }else{
+        obj["other_free"].push(dataList[i]);
+      }
 		}else{	//":"があるもの
 			ele = dataList[i].split(/\s?:\s?/);
 			if(	//mainに入れる要素
