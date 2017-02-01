@@ -21,6 +21,7 @@ window.onload=()=>{
             "<td>"+obj.data[i].qth+"</td>"+
             "<td>"+obj.data[i].band+"</td>"+
             "<td>"+obj.data[i].mode+"</td>"+
+            "<td>"+obj.data[i].my_rst+"/"+obj.data[1].rst+"</td>"+
             "<td><a href='show.html#"+obj.data[i].id+"'> Click </a></td>"+
             "</tr>"
           );

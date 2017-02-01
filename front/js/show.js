@@ -12,6 +12,7 @@ window.onload=()=>{
     success: function(obj) {	
       console.log(obj);
       if (obj.status) {
+        console.log(obj.data.main);
         $("#datatable").append(
           "<tr>"+
           "<td>"+obj.data.main.date+"</td>"+
@@ -20,6 +21,7 @@ window.onload=()=>{
           "<td>"+obj.data.main.qth+"</td>"+
           "<td>"+obj.data.main.band+"</td>"+
           "<td>"+obj.data.main.mode+"</td>"+
+          "<td>"+obj.data.main.my_rst+"/"+obj.data.main.rst+"</td>"+
           "</tr>"
         );
         for(var i=0;i<obj.data.option.length;i++){

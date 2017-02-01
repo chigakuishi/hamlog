@@ -68,7 +68,7 @@ function changeData(){
 	//データの変換
 	sentences = document.getElementById('data').value;
 	sentences = sentences.replace(/([1-5][0-9])\/([1-5][0-9])/g,(m,p1,p2)=>(
-    "my_rst:"+p1+"\nrst:"+p2
+    "rst:"+p1+"\nmy_rst:"+p2
   ));
   sentences = sentences.replace(/cs:/g,"callsign:");
 	document.getElementById('data').value = sentences;
