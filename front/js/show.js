@@ -5,7 +5,7 @@ if(getCookie("session")==""){
 window.onload=()=>{
   $.ajax({
     type:"post",	
-    url:"https://re75.info/hamlog/api/show.php",	
+    url:"../api/show.php",	
     data:JSON.stringify({"session":getCookie("session"),"qso":Number(location.hash.substring(1))}),	
     contentType: 'application/json',	
     dataType: "json",	

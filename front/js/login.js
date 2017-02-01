@@ -6,7 +6,7 @@ function loginStart(){
   
   $.ajax({
     type:"post",	
-    url:"https://re75.info/hamlog/api/login.php",	
+    url:"../api/login.php",	
     data:JSON.stringify(data),	
     contentType: 'application/json',	
     dataType: "json",	

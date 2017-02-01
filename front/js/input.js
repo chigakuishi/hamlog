@@ -153,7 +153,7 @@ function saveData(){
 	document.getElementById('convert').disabled ="";
   $.ajax({
     type:"post",	
-    url:"https://re75.info/hamlog/api/create.php",	
+    url:"../api/create.php",	
     data:JSON.stringify(waitJson),	
     contentType: 'application/json',	
     dataType: "json",	

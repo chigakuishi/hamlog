@@ -11,7 +11,7 @@ function touroku(){
 	console.log(json);
   $.ajax({
     type:"post",	
-    url:"https://re75.info/hamlog/api/signup.php",	
+    url:"../api/signup.php",	
     data:JSON.stringify(data),	
     contentType: 'application/json',	
     dataType: "json",	
