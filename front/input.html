@@ -12,7 +12,7 @@
 		<hr>
 		<input type="button" id="main"  onKeyPress="return pushEnter(event);" onclick=" location.href='index.html'; " value="戻る"></br>
     <textarea rows="10" onkeydown="saveTmp();" cols="20" id="tmp"></textarea>
-		<input type="button" onclick="useTmp()" value="テンプレートを使う"></br>
+		<input type="button" onclick="useTmp();saveTmp();" value="テンプレートを使う"></br>
 		<div id="buttons" style="display:none">
 			<input type="button" value="変換" onclick="changeData()" id="convert">
 			<input type="button" value="保存" onclick="saveData()" id="save">

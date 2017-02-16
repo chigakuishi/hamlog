@@ -58,7 +58,8 @@ function useTmp(){
   $("#data").val(edit+tmp);
   $("#data").focus();
 }
-function openButton(){ //テキストに入力するとボタンが出現する
+
+function openButton(){
   localStorage.edit=$("#data").val();
 	document.getElementById('buttons').style.display="block";	
 	document.getElementById('save').disabled="disabled";
@@ -66,13 +67,15 @@ function openButton(){ //テキストに入力するとボタンが出現する
   waitJson="";
 }
 
+function getCallsign(){
+  
+}
+
 function changeData(){ 
   var sday;
   calls=[];
-	//変換ボタンを消し、保存ボタンを出現させる
 	document.getElementById('convert').disabled ="disabled";	
 	document.getElementById('save').disabled ="";	
-	//データの変換
 	sentences = document.getElementById('data').value;
 	sentences = sentences.replace(/([1-5][0-9])\/([1-5][0-9])/g,(m,p1,p2)=>(
     "rst:"+p1+"\nmy_rst:"+p2
@@ -81,11 +84,19 @@ function changeData(){
 	document.getElementById('data').value = sentences;
   dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
-		if(dataList[i].match(/^-{3,}$/)){	//"---"で区切る
+		if(dataList[i].match(/^-{3,}$/) || dataList.length-1 == i){	//"---"で区切る
       obj.main.my_qth = obj.main.my_qth ||def.main.my_qth;
       obj.main.qth = obj.main.qth ||def.main.my_qth;
       obj.main.callsign = obj.main.callsign.toUpperCase();
       sday = obj.main.date;
+      if(!(obj.main.my_qth && obj.main.qth && obj.main.callsign && obj.main.callsign && obj.main.time
+        && obj.main.band && obj.main.mode && obj.main.rst &&obj.main.my_rst
+      )){
+        alert("不足事項があります"+JSON.stringify(obj));
+        openButton();
+        return;
+      }
+
 		  calls.push(obj);
 			obj ={
 				"main":{},
