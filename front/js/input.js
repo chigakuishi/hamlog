@@ -84,6 +84,7 @@ function changeData(){
 	document.getElementById('data').value = sentences;
   dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
+    if(dataList[i]=="") continue;
 		if(dataList[i].match(/^-{3,}$/) || dataList.length-1 == i){	//"---"で区切る
       obj.main.my_qth = obj.main.my_qth ||def.main.my_qth;
       obj.main.qth = obj.main.qth ||def.main.my_qth;
