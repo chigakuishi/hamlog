@@ -68,7 +68,7 @@ function enterText(show){
     var endLinePoint = $("#data").val().indexOf("\n",$("#data").get(0).selectionStart);
     endLinePoint = endLinePoint == -1?$("#data").val().length:endLinePoint;
     var nowEditLine = $("#data").val().substr(0,endLinePoint).split(/\n/).pop();
-    var match = nowEditLine.match(/^cs:([^\/]*)(?:\/\S*)*$/);
+    var match = nowEditLine.match(/^(?:cs|callsign):([^\/]*)(?:\/\S*)*$/);
     if(match){
       var cs = match[1].toUpperCase();
       searchCallsign(cs);
@@ -97,7 +97,7 @@ function searchCallsign(cs){
             "<td>"+obj.data[i].main.qth+"</td>"+
             "<td>"+obj.data[i].main.band+"</td>"+
             "<td>"+obj.data[i].main.mode+"</td>"+
-            "<td>"+obj.data[i].main.my_rst+"/"+obj.data[i].main.rst+"</td>"+
+            "<td>"+obj.data[i].main.rst+"/"+obj.data[i].main.my_rst+"</td>"+
             "<td><button onClick='showFrame(\"show.html?id="+obj.data[i].main.id+"#"+obj.data[i].main.id+"\")' target='info-frame'> Click </a></td>"+
             "</tr>"
           );
@@ -119,7 +119,7 @@ function changeData(){
 	document.getElementById('convert').disabled ="disabled";	
 	document.getElementById('save').disabled ="";	
 	sentences = document.getElementById('data').value;
-	sentences = sentences.replace(/^([1-5][0-9])\/([1-5][0-9])$/g,(m,p1,p2)=>(
+	sentences = sentences.replace(/^([1-5][0-9])\/([1-5][0-9])$/mg,(m,p1,p2)=>(
     "rst:"+p1+"\nmy_rst:"+p2
   ));
   sentences = sentences.replace(/cs:/g,"callsign:");

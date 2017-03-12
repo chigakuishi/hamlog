@@ -22,7 +22,7 @@ window.onload=()=>{
           "<td>"+obj.data.main.qth+"</td>"+
           "<td>"+obj.data.main.band+"</td>"+
           "<td>"+obj.data.main.mode+"</td>"+
-          "<td>"+obj.data.main.my_rst+"/"+obj.data.main.rst+"</td>"+
+          "<td>"+obj.data.main.rst+"/"+obj.data.main.my_rst+"</td>"+
           "</tr>"
         );
         datavalue+="date:"+obj.data.main.date+"\n";
