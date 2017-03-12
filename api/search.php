@@ -18,8 +18,9 @@
     exit();
   }
 
-  $stmt=$pdo->prepare("select * from qsos where callsign=:cs AND station=:mycs order by `date` DESC,time DESC;");
+  $stmt=$pdo->prepare("select * from qsos where (callsign=:cs OR callsign LIKE :lcs ) AND station=:mycs order by `date` DESC,time DESC;");
   $stmt->bindValue(":mycs",$obj["cs"],PDO::PARAM_STR);
+  $stmt->bindValue(":lcs",$obj["callsign"]."/_");
   $stmt->bindValue(":cs",$obj["callsign"],PDO::PARAM_INT);
   if(!$stmt->execute()){
     http_response_code(400);
@@ -34,6 +35,7 @@
       unset($qsodat[$i][$ii]);
     }
   }
+  $output["data"]=Array();
   for($i=0;$i<count($qsodat);$i++){
     $qsoid=$qsodat[$i]["id"];
     $output["data"][$i]["main"]=$qsodat[$i];

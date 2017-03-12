@@ -27,4 +27,10 @@ td.login_button{
 	text-align: center;
 	padding: 10px;
 }
-
+.inputbox{
+  float:left;
+  width: 400px;
+}
+.infobox{
+  float:left
+}

@@ -10,13 +10,22 @@
 	<body>
 		<h1>入力画面</h1>
 		<hr>
-		<input type="button" id="main"  onKeyPress="return pushEnter(event);" onclick=" location.href='index.html'; " value="戻る"></br>
-    <textarea rows="10" onkeydown="saveTmp();" cols="20" id="tmp"></textarea>
-		<input type="button" onclick="useTmp();saveTmp();" value="テンプレートを使う"></br>
-		<div id="buttons" style="display:none">
-			<input type="button" value="変換" onclick="changeData()" id="convert">
-			<input type="button" value="保存" onclick="saveData()" id="save">
-		</div>
-    <textarea rows="20" cols="50" onkeydown="openButton()" id="data"></textarea>
+    <div class="inputbox">
+      <input type="button" id="main"  onKeyPress="return pushEnter(event);" onclick=" location.href='index.html'; " value="戻る"></br>
+      <textarea rows="10" onkeydown="saveTmp();" cols="20" id="tmp" width="400px"></textarea>
+      <input type="button" onclick="useTmp();saveTmp();" value="テンプレートを使う"></br>
+      <div id="buttons" style="display:none">
+        <input type="button" value="変換" onclick="changeData()" id="convert">
+        <input type="button" value="保存" onclick="saveData()" id="save">
+      </div>
+      <textarea rows="20" cols="50" onkeyup="enterText()" id="data"></textarea>
+    </div>
+    <div class="infobox">
+      <table border="1" id="datatable" width="600px">
+      </table>
+      <div class="iframebox">
+        <iframe height="400px" width="600px" id="frame" name="info-frame" src="index.html"> このサービスではフレームを使いますが、使わなくても主な機能は利用可能です </iframe>
+      </div>
+    </div>
 	</body>
 </html>

@@ -1,0 +1,187 @@
+-- MySQL dump 10.13  Distrib 5.6.33, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: ham
+-- ------------------------------------------------------
+-- Server version	5.6.33-0ubuntu0.14.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `details`
+--
+
+DROP TABLE IF EXISTS `details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `qso` int(11) NOT NULL,
+  `question` varchar(1024) NOT NULL,
+  `answer` varchar(1024) NOT NULL,
+  `type` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=365 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `details`
+--
+
+LOCK TABLES `details` WRITE;
+/*!40000 ALTER TABLE `details` DISABLE KEYS */;
+INSERT INTO `details` VALUES (1,1,'name','中村','option'),(2,1,'qsl','1-1','option'),(3,2,'name','井上','option'),(4,2,'qsl','1-2','option'),(5,3,'name','新井','option'),(6,3,'qsl','1-3','option'),(7,4,'qsl','1-4','option'),(8,5,'qsl','1-5','option'),(9,6,'power','20W','option'),(10,6,'ant','5エレ八木','option'),(11,6,'name','中村','option'),(12,6,'qsl','1-6','option'),(13,7,'name','イイダ','option'),(14,7,'qsl','1-7','option'),(15,8,'name','ヒガシ','option'),(16,8,'qsl','1-8','option'),(17,9,'name','渡','option'),(18,9,'qsl','1-9','option'),(19,10,'name','斎藤','option'),(20,10,'rig','IC-991','option'),(21,10,'ant','GP/43mH','option'),(22,10,'qsl','1-10','option'),(23,11,'name','マノ','option'),(24,11,'qsl','1-11','option'),(25,12,'name','カトウ','option'),(26,12,'rig','FT991','option'),(27,12,'ant','3段GPO/25mH','option'),(28,12,'qsl','1-12','option'),(29,13,'name','須賀','option'),(30,13,'ant','ダイヤモンド15エレ八木/15mH','option'),(31,13,'rig','IC-9100','option'),(32,13,'qsl','1-13','option'),(33,13,'idea','QSLカードをスキャナ','free'),(34,14,'name','カワカミ','option'),(35,14,'qsl','1-14','option'),(36,14,'ant','シングル八木/8mH','option'),(37,14,'twitter','@7m3url','free'),(38,15,'name','寺垣','option'),(39,15,'qsl','no','option'),(40,15,'ant','2エレ八木/10mH','option'),(41,16,'qsl','1-15','option'),(42,17,'qsl','1-15','option'),(43,18,'name','高浦','option'),(44,18,'ant','9エレ八木*2/25mH','option'),(45,18,'rig','IC-9100','option'),(46,18,'power','50W','option'),(47,18,'qsl','1-16','option'),(48,19,'name','三井','option'),(49,19,'rig','FT-991','option'),(50,19,'qsl','1-17','option'),(51,20,'name','ナカザト','option'),(52,20,'qsl','1-18','option'),(53,21,'qsl','2-1','option'),(54,22,'qsl','no','option'),(55,22,'name','カンノ','option'),(56,22,'ant','業務用八木','option'),(57,22,'rig','FT-857','option'),(58,22,'power','50W','option'),(59,23,'name','イズヌマ','option'),(60,23,'qsl','2-2','option'),(61,23,'distance','30km','free'),(62,24,'name','サト','option'),(63,24,'ant','7エレ八木','option'),(64,24,'qsl','2-3','option'),(65,25,'name','オダ','option'),(66,25,'qsl','1-19','option'),(67,25,'ant','GP/7mH','option'),(68,26,'name','イデ','option'),(69,26,'ant','八木/10mH','option'),(70,26,'qsl','1-20','option'),(71,27,'name','佐保田','option'),(72,27,'qsl','1-21','option'),(73,27,'power','35W','option'),(74,27,'ant','12エレ八木19mH','option'),(75,28,'name','イチマル','option'),(76,28,'rig','FT-857','option'),(77,28,'qsl','1-22','option'),(78,29,'qsl','1-23','option'),(79,29,'name','西川','option'),(80,29,'ant','9mH','option'),(81,30,'name','イトキ','option'),(82,30,'qsl','1-24','option'),(83,31,'qsl','1-24-2','option'),(84,32,'name','ハタケヤマ','option'),(85,32,'rig','TS-2000','option'),(86,32,'power','20W','option'),(87,32,'ant','10エレ八木2スタック','option'),(88,32,'qsl','1-25','option'),(89,33,'name','ヨネハラ','option'),(90,33,'ant','15mH','option'),(91,33,'my_ant','ヘンテナ','free'),(92,34,'power','30W','option'),(93,34,'qsl','no','option'),(94,34,'my_ant','ヘンテナ','free'),(95,35,'ant','ホイップアンテナ','option'),(96,35,'name','竹内','option'),(97,35,'qsl','1-27','option'),(98,35,'my_ant','ヘンテナ','free'),(99,36,'ant','GP(X6000)/15mH','option'),(100,36,'power','10W','option'),(101,36,'qsl','1-28','option'),(102,36,'my_ant','ヘンテナ','free'),(103,37,'qsl','1-29','option'),(104,37,'name','中村','option'),(105,37,'my_ant','ヘンテナ','free'),(106,38,'qsl','1way','option'),(107,38,'name','にしじま','option'),(108,38,'my_ant','ヘンテナ','free'),(109,39,'qsl','1-31','option'),(110,39,'name','八山','option'),(111,39,'rig','78700','option'),(112,39,'ant','モービルホイップ/7mH','option'),(113,39,'my_ant','ヘンテナ','free'),(114,40,'qsl','1-32','option'),(115,40,'name','くろさわ','option'),(116,40,'rig','FT-817','option'),(117,40,'ant','GP/10mH','option'),(118,40,'my_ant','ヘンテナ','free'),(119,41,'qsl','1-33','option'),(120,41,'home','東京都武蔵野市','option'),(121,41,'ant','モービルホイップ(50-439MHz)','option'),(122,41,'rig','IC7100','option'),(123,41,'my_ant','ヘンテナ','free'),(124,42,'qsl','1-34','option'),(125,42,'name','キヅガワ','option'),(126,42,'my_ant','ヘンテナ','free'),(127,43,'qsl','1-35','option'),(128,43,'name','アラカワ','option'),(129,43,'my_ant','ヘンテナ','free'),(130,44,'qsl','yet','option'),(131,44,'name','梅沢','option'),(132,44,'rig','IC-7100','option'),(133,44,'power','10W','option'),(134,44,'my_ant','HFV5','free'),(135,45,'qsl','D-1','option'),(136,45,'home','栃木県佐野市船越町2142-1','option'),(137,45,'name','新井一秋','option'),(138,45,'power','12W','option'),(139,45,'my_ant','11エレ八木','free'),(140,45,'height','180m','free'),(141,46,'qsl','yet','option'),(142,46,'name','武田','option'),(143,46,'power','3WQRP','option'),(144,46,'my_ant','11エレ八木','free'),(145,47,'qsl','1-36','option'),(146,47,'my_ant','ヘンテナ','free'),(147,48,'qsl','1-36','option'),(148,48,'name','小野','option'),(149,48,'power','50W','option'),(150,48,'ant','15*4eleYagi 18mH','option'),(151,48,'my_ant','ヘンテナ','free'),(152,49,'qsl','1-37','option'),(153,49,'name','庄司','option'),(154,49,'power','20W','option'),(155,49,'ant','GP/20mH','option'),(156,49,'my_ant','ヘンテナ','free'),(157,50,'qsl','1-','option'),(158,50,'my_ant','ヘンテナ','free'),(159,51,'qsl','1-38','option'),(160,51,'name','東','option'),(161,51,'my_ant','ヘンテナ','free'),(162,52,'qsl','1-39','option'),(163,52,'name','佐々木','option'),(164,52,'my_ant','ヘンテナ','free'),(165,52,'detail_qth','霧降高原','free'),(166,53,'qsl','1-40','option'),(167,53,'name','コイケ','option'),(168,53,'ant','15ele八木/7mH','option'),(169,53,'rig','FT-991M','option'),(170,53,'power','50W','option'),(171,53,'my_ant','ヘンテナ','free'),(172,54,'qsl','no','option'),(173,54,'my_ant','ヘンテナ','free'),(174,54,'before','11/8','free'),(175,55,'qsl','1-42','option'),(176,55,'name','やまね','option'),(177,55,'power','20W','option'),(178,55,'ant','GP/12mH','option'),(179,55,'my_ant','ヘンテナ','free'),(180,56,'qsl','1-43','option'),(181,56,'name','マツモト','option'),(182,56,'rig','TS-2000','option'),(183,56,'power','20W','option'),(184,56,'my_ant','ヘンテナ','free'),(185,57,'qsl','1-44','option'),(186,57,'power','5W','option'),(187,57,'name','千葉','option'),(188,57,'my_ant','ヘンテナ','free'),(189,57,'detail_qth','練馬区役所20階','free'),(190,58,'qsl','yet','option'),(191,58,'name','小林','option'),(192,58,'ant','9エレループ八木自作','option'),(193,58,'power','7W','option'),(194,58,'my_ant','11エレ八木','free'),(195,59,'qsl','yet','option'),(196,59,'name','あんどう','option'),(197,59,'my_ant','11エレ八木/11mH','free'),(198,60,'qsl','yet','option'),(199,60,'my_ant','11エレ八木/11mH','free'),(200,61,'qsl','yet','option'),(201,61,'name','すぎうら','option'),(202,61,'ant','GP','option'),(203,61,'my_ant','11ele八木/11mH','free'),(204,62,'qsl','yet','option'),(205,62,'name','伊東','option'),(206,62,'power','20W','option'),(207,62,'rig','KENWOOD/455','option'),(208,62,'ant','6エレクワッド/マンション10階','option'),(209,62,'my_ant','11ele/11mH','free'),(210,63,'qsl','no','option'),(211,63,'name','うめざわ','option'),(212,63,'my_ant','ロングワイヤ/7mH','free'),(213,64,'qsl','no','option'),(214,64,'my_ant','11eleYagi/7mH','free'),(215,65,'qsl','yet','option'),(216,65,'name','小林','option'),(217,65,'ant','13エレスタック','option'),(218,65,'my_ant','11eleYagi/7mH','free'),(219,66,'qsl','yet','option'),(220,66,'name','まつざわ','option'),(221,66,'home','長野県諏訪市','option'),(222,66,'ant','5エレ八木','option'),(223,66,'rig','ハンディー','option'),(224,66,'my_ant','11eleYagi/11mH','free'),(225,66,'detail_qth','後楽園の近く','free'),(226,67,'qsl','yet','option'),(227,67,'power','1W','option'),(228,67,'name','木山','option'),(229,67,'home','岡山県矢掛町','option'),(230,67,'my_ant','11eleYagi/11mH','free'),(231,68,'qsl','yet','option'),(232,68,'name','原田','option'),(233,68,'power','20Wモービル機','option'),(234,68,'ant','10エレ八木シングル/マンション９階','option'),(235,68,'my_ant','11eleYagi/11mH','free'),(236,69,'qsl','yet','option'),(237,69,'name','津久浦','option'),(238,69,'ant','20エレシングル/18mH','option'),(239,69,'power','50W','option'),(240,69,'my_ant','11eleYagi/11mH','free'),(241,70,'qsl','yet','option'),(242,70,'name','井上','option'),(243,70,'ant','X5000','option'),(244,70,'rig','FT991A','option'),(245,70,'my_ant','11eleYagi/11mH','free'),(246,71,'qsl','yet','option'),(247,71,'name','葛山','option'),(248,71,'ant','20ele二列二段/ルーフタワー','option'),(249,71,'my_ant','11eleYagi/11mH','free'),(250,72,'qsl','no','option'),(251,72,'ant','GP','option'),(252,72,'name','おおしま','option'),(253,72,'my_ant','11eleYagi/11mH','free'),(254,73,'qsl','yet','option'),(255,73,'name','大久保','option'),(256,73,'my_ant','11eleYagi/11mH','free'),(257,74,'qsl','yet','option'),(258,74,'name','アラカワ','option'),(259,74,'rig','IC-207','option'),(260,74,'ant','GP/校舎の3階の屋上','option'),(261,74,'my_ant','11eleYagi/11mH','free'),(262,74,'url','http','free'),(263,75,'qsl','yet','option'),(264,75,'name','わらじ','option'),(265,75,'ant','18m','option'),(266,75,'rig','TS990X','option'),(267,75,'power','200W','option'),(268,75,'my_ant','LW/11mH','free'),(269,75,'detail_qth','下高井戸','free'),(270,76,'qsl','yet','option'),(271,76,'name','のむら','option'),(272,76,'rig','IC7300M','option'),(273,76,'ant','LW','option'),(274,76,'my_ant','WL/7mH','free'),(275,76,'detail_qth','世田谷区役所の近く','free'),(276,77,'qsl','yet','option'),(277,77,'name','ねぎき','option'),(278,77,'my_ant','11eleYagi/11mH','free'),(279,77,'jcc','13008','free'),(280,78,'qsl','yet','option'),(281,78,'name','江間','option'),(282,78,'my_ant','LW/7mH','free'),(283,79,'qsl','yet','option'),(284,79,'name','とうじょう','option'),(285,79,'my_ant','LW/7mH','free'),(286,79,'JCC','0705','free'),(287,79,'detail_qth','しらさかの森スポーツ公園','free'),(288,80,'qsl','yet','option'),(289,80,'name','いなおか','option'),(290,80,'my_ant','11ele八木/10mH','free'),(291,81,'qsl','yet','option'),(292,81,'name','さがわ','option'),(293,81,'ant','ホイップ','option'),(294,81,'my_ant','11ele八木/10mH','free'),(295,82,'qsl','yet','option'),(296,82,'name','はせべ','option'),(297,82,'my_ant','11ele八木/11mH','free'),(298,83,'qsl','yet','option'),(299,83,'name','徳岡','option'),(300,83,'ant','コメットGP15/屋上','option'),(301,83,'power','30W','option'),(302,83,'rig','TS790S','option'),(303,83,'my_ant','11ele八木/11mH','free'),(304,84,'qsl','yet','option'),(305,84,'name','井上','option'),(306,84,'my_ant','ヘンテナ/1mH','free'),(307,85,'qsl','yet','option'),(308,85,'name','うちむら','option'),(309,85,'power','5W','option'),(310,85,'ant','7eleループアンテナ','option'),(311,85,'home','神奈川県座間市','option'),(312,85,'my_ant','ヘンテナ/1mH','free'),(313,86,'qsl','yet','option'),(314,86,'name','さいとう','option'),(315,86,'power','10W','option'),(316,86,'my_ant','ヘンテナ/1mH','free'),(317,87,'qsl','yet','option'),(318,87,'name','','option'),(319,87,'power','35W','option'),(320,87,'my_ant','ヘンテナ/1mH','free'),(321,88,'qsl','yet','option'),(322,88,'name','なかむら','option'),(323,88,'power','20W','option'),(324,88,'ant','ホイップアンテナ','option'),(325,88,'my_ant','ヘンテナ/1mH','free'),(326,89,'qsl','yet','option'),(327,89,'name','おおた','option'),(328,89,'power','20W','option'),(329,89,'my_ant','ヘンテナ/1mH','free'),(330,90,'qsl','no','option'),(331,90,'name','関口','option'),(332,90,'power','4W','option'),(333,90,'my_ant','ヘンテナ/1mH','free'),(334,91,'qsl','no','option'),(335,91,'name','むらやま','option'),(336,91,'power','10W','option'),(337,91,'my_ant','ヘンテナ/1mH','free'),(338,92,'qsl','yet','option'),(339,92,'name','いしまる','option'),(340,92,'power','5W','option'),(341,92,'ant','7eleループアンテナ','option'),(342,92,'my_ant','ヘンテナ/1mH','free'),(343,93,'qsl','yet','option'),(344,93,'name','いば','option'),(345,93,'my_ant','LW/7mH','free'),(346,93,'jcc','0304','free'),(347,94,'qsl','yet','option'),(348,94,'name','わたなべ','option'),(349,94,'my_ant','LW/7mH','free'),(350,95,'qsl','yet','option'),(351,95,'name','???','option'),(352,95,'my_ant','LW/7mH','free'),(353,96,'qsl','yet','option'),(354,96,'name','小林','option'),(355,96,'home','桜ヶ丘','option'),(356,96,'my_ant','LW/7mH','free'),(357,96,'jcc','1401','free'),(358,97,'qsl','yet','option'),(359,97,'name','高根','option'),(360,97,'my_ant','LW/7mH','free'),(361,97,'remote','山形県新庄市(国道13号移動)','free'),(362,98,'qsl','yet','option'),(363,98,'name','rhenium','option'),(364,98,'my_ant','LW/7mH','free');
+/*!40000 ALTER TABLE `details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `memo`
+--
+
+DROP TABLE IF EXISTS `memo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `memo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `qso` int(11) DEFAULT NULL,
+  `memo` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `memo`
+--
+
+LOCK TABLES `memo` WRITE;
+/*!40000 ALTER TABLE `memo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `memo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `memos`
+--
+
+DROP TABLE IF EXISTS `memos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `memos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `qso` int(11) DEFAULT NULL,
+  `memo` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `memos`
+--
+
+LOCK TABLES `memos` WRITE;
+/*!40000 ALTER TABLE `memos` DISABLE KEYS */;
+INSERT INTO `memos` VALUES (1,2,'西部'),(2,3,'三毳山'),(3,3,'5W'),(4,3,'ハンディー'),(5,4,'GP'),(6,4,'兵庫出身'),(7,5,'45-46年のOM'),(8,7,'山頂'),(9,9,'もともと三茶住み'),(10,11,'40周年'),(11,11,'港区芝公園'),(12,12,'頻繁にJT65'),(13,13,'タワーの話'),(14,13,'エレベータ?'),(15,14,'移動運用'),(16,15,'アパマン'),(17,15,'5開局'),(18,15,'池袋'),(19,16,'自宅世田谷'),(20,16,'今年開局'),(21,17,'QSYしてきた'),(22,18,'JCC1062'),(23,18,'41年目'),(24,18,'タワー'),(25,18,'51kmほど離れてる'),(26,19,'1年目'),(27,19,'HFから出られてる'),(28,20,'元・上北沢'),(29,21,'隣のPA'),(30,21,'ナガノ'),(31,22,'被災'),(32,23,'名前が読めない'),(33,24,'昔は目黒'),(34,24,'権之助坂'),(35,25,'新百合ヶ丘の近く'),(36,25,'住宅街'),(37,26,'直前までかぐや山'),(38,26,'20年目'),(39,27,'川崎街道の近く'),(40,28,'アパマン7階'),(41,29,'年金'),(42,29,'慶應落ち'),(43,29,'父が慶應応援団'),(44,29,'弟は慶応卒海外'),(45,29,'船が趣味'),(46,30,'普段はいない'),(47,30,'国立出身'),(48,30,'GP6mH'),(49,30,'50W'),(50,30,'丹沢が見える'),(51,30,'めったに固定では居ない'),(52,30,'石垣市に年間１０ヶ月は居る'),(53,31,'JM1RMIと同一人物'),(54,34,''),(55,34,''),(56,34,''),(57,34,''),(58,35,'環七の近く'),(59,36,'name;サトウ'),(60,37,'山の話'),(61,37,'ハンディー'),(62,38,'無線通信120周年記念局'),(63,39,'ブログでQSOを書いてる人'),(64,40,'HFではデルタループ'),(65,43,'アパマンハム'),(66,43,'開局４０周年'),(67,44,'初の50Mhz交信'),(68,44,'池尻'),(69,44,'51.00MHｚ専用の無線機を持っている'),(70,44,'港区と渋谷区と板橋に50MHｚは強い局がいる'),(71,44,'昔が50がおおかった'),(72,44,'普段はDstar'),(73,44,'HFV-5'),(74,44,'茶沢通りの花屋さんの息子さんが無線をやってる'),(75,44,'自分ではCQを出さない'),(76,44,'CWは使えない'),(77,45,'ダイレクトのQSL'),(78,46,'モノレールの乗換駅の40階'),(79,47,'２日連続'),(80,47,'大山反射'),(81,48,'first'),(82,48,'HFアンテナ故障'),(83,49,'川崎ICの近く'),(84,49,'50年以上のOM'),(85,49,'7MHzメイン'),(86,49,'7MHzを聞かせてくれた'),(87,49,'早稲田だ大学文学部卒'),(88,49,'HFのアドバイス'),(89,51,'いつもの人'),(90,52,'first'),(91,53,'富士山反射'),(92,53,'開局３年'),(93,53,'ワイヤーアンテナの話'),(94,53,'40年ぶりの再開局'),(95,53,'HFはIC7300'),(96,53,'夜によくいる'),(97,54,'日曜日に2mコンテスト'),(98,55,'first'),(99,55,'再割当て'),(100,55,'デジタルフォトフレームでのQSLカード管理'),(101,55,'10年前に無線をやっていた'),(102,55,'40過ぎで再開局'),(103,55,'職場の先輩と昔は話してた'),(104,56,'世田谷生まれ'),(105,56,'アパマンハム'),(106,56,'HFは釣り竿'),(107,57,'北向き'),(108,57,'5月に40年ぶりの開局'),(109,57,'中村橋の近く'),(110,57,'会社帰り'),(111,58,'first'),(112,58,'アンテナ制作教室'),(113,58,'1974年からアンテナを作ってる'),(114,58,'440番までのアンテナを作ってる'),(115,58,'40cmの7MHz'),(116,58,'アイソトロンアンテナ'),(117,60,'いつものひと'),(118,60,'抵抗の値が乗ってる'),(119,61,'first'),(120,61,'HF/CWをすごいやられてる'),(121,62,'10階のベランダ'),(122,62,'5WQRP'),(123,62,'北が開けてる'),(124,62,'岩手まで430で繋がった'),(125,63,'2-3日前'),(126,63,'7MHzの上の方は空いてる'),(127,63,'事務処理で最近忙しい'),(128,63,'暖かくなったらゴルフ'),(129,63,'嫁がCQ出したらたいへんなことに'),(130,64,'夜間は3.5'),(131,64,'明日は６時おき'),(132,65,'3人'),(133,65,'1/4付の免許'),(134,66,'ホテル'),(135,67,'マンション１５階'),(136,68,'first'),(137,68,'1999年は大して交信しないで閉局'),(138,69,'ルーフタワー'),(139,69,'2Wでも59'),(140,69,'メインは50MHz'),(141,69,'msk144がはやる？'),(142,69,'大規模な移動運用を年に数回'),(143,69,'50.200MHzでCQ'),(144,69,'50.150MHz以下ではCQを出さないのがマナー'),(145,70,'アパマンハム'),(146,70,'HFもでてる'),(147,70,'21で九州まで交信したことが有る'),(148,70,'430で福島と交信した'),(149,71,'東京湾の入り口の所'),(150,71,'風が強い'),(151,72,'アパマンハム'),(152,72,'1.9から出てる'),(153,73,'first'),(154,75,'first'),(155,75,'固定局only'),(156,75,'6m以下のHFなどのみ'),(157,75,'いまつかっているアンテナ以外は自作'),(158,75,'14〜28はケミカルクワッド？'),(159,75,'小さなクランクアップタワーを鉄筋コンクリートにくっつけてる'),(160,76,'18日に経堂駅でミーティング'),(161,76,'明後日ミーティング'),(162,76,'北口からいく経堂の会館'),(163,76,'菱山さんも知り合い'),(164,76,'tel090-8178-5140'),(165,78,'フェージングがある'),(166,81,'494mの山'),(167,81,'Twitterのひと'),(168,82,'富士山ビーム'),(169,82,'first'),(170,83,'集合住宅'),(171,83,'first'),(172,83,'7MHz・50MHzも出てる'),(173,85,'仕事場の駐車場'),(174,86,'ハンディー機で移動運用してる'),(175,86,'移動は1200MHz'),(176,87,'？？湖'),(177,87,'3rd'),(178,88,'first'),(179,89,'first'),(180,90,'QRP'),(181,92,'12月26日に交信してる'),(182,93,'直接波'),(183,94,'直接波'),(184,95,'自信ない'),(185,97,'スマートフォンで自宅PCをつかって'),(186,97,'軽自動車'),(187,97,'1m位の積雪(山形)'),(188,97,'秋田へ向かってる'),(189,97,'blog'),(190,98,'てすとです');
+/*!40000 ALTER TABLE `memos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qsos`
+--
+
+DROP TABLE IF EXISTS `qsos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qsos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `station` varchar(10) NOT NULL,
+  `callsign` varchar(10) NOT NULL,
+  `date` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `qth` varchar(64) NOT NULL,
+  `my_qth` varchar(64) NOT NULL,
+  `band` double NOT NULL,
+  `mode` varchar(32) NOT NULL,
+  `rst` int(11) NOT NULL,
+  `my_rst` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qsos`
+--
+
+LOCK TABLES `qsos` WRITE;
+/*!40000 ALTER TABLE `qsos` DISABLE KEYS */;
+INSERT INTO `qsos` VALUES (1,'JI1XRF','JA6OTC/1',20161105,1600,'東京都豊島区池袋','東京都世田谷区',144,'FM',59,55),(2,'JI1XRF','JA1AEV',20161105,1615,'東京都町田市','東京都世田谷区',430,'FM',55,59),(3,'JI1XRF','JW1WOX',20161105,1645,'栃木県佐野市','東京都世田谷区',430,'FM',57,59),(4,'JI1XRF','JI3AES/1',20161105,2252,'埼玉県さいたま市南区','東京都世田谷区',430,'FM',59,53),(5,'JI1XRF','JI1JCQ',20161105,2252,'不明','東京都世田谷区',430,'FM',59,55),(6,'JI1XRF','JA1CHY',20161105,2338,'東京都多摩市','東京都世田谷区',430,'FM',59,55),(7,'JI1XRF','JL1BWG/1',20161106,946,'神奈川県愛川町','東京都世田谷区',430,'FM',59,59),(8,'JI1XRF','JI1WPO',20161106,2305,'東京都世田谷区','東京都世田谷区',430,'FM',59,59),(9,'JI1XRF','JA1WQZ',20161107,1908,'東京都三鷹市','東京都世田谷区',430,'FM',59,55),(10,'JI1XRF','JJ2JBA/1',20161107,1930,'東京都荒川区','東京都世田谷区',430,'FM',55,55),(11,'JI1XRF','JJ1MUM',20161107,2033,'東京都港区','東京都世田谷区',140,'FM',57,59),(12,'JI1XRF','JI1RMZ',20161108,2100,'埼玉県さいたま市南区','東京都世田谷区',430,'FM',59,55),(13,'JI1XRF','JF1TIB',20161108,2130,'横須賀','東京都世田谷区',430,'FM',53,56),(14,'JI1XRF','7M3URL/1',20161109,2205,'東京都国立市','東京都世田谷区',144,'FM',57,57),(15,'JI1XRF','JI1TTJ',20161109,2240,'東京都新宿区','東京都世田谷区',430,'FM',56,53),(16,'JI1XRF','JI1SGS/1',20161111,825,'move[246移動(池尻→中目黒→大崎)]','東京都世田谷区',430,'FM',57,59),(17,'JI1XRF','JI1SGS/1',20161111,825,'move[246移動(池尻→中目黒→大崎)]','東京都世田谷区',144,'FM',57,59),(18,'JI1XRF','JI1DLW',20161111,910,'千葉県市原市','東京都世田谷区',144,'FM',33,36),(19,'JI1XRF','JI1PPV',20161111,2345,'東京都板橋区','東京都世田谷区',144,'FM',59,58),(20,'JI1XRF','JE1QFK',20161112,727,'千葉県野田市','東京都世田谷区',144,'FM',57,59),(21,'JI1XRF','JA2HKB/7',20161112,1245,'福島県小川町','四倉PA',430,'FM',59,59),(22,'JI1XRF','JL7JFZ/7',20161112,1028,'福島県南相馬沿岸部','常磐自動車道南相馬鹿島SA',430,'FM',57,59),(23,'JI1XRF','JA7TGD',20161113,1028,'宮城県栗原市','気仙沼市御崎岬',430,'FM',59,59),(24,'JI1XRF','JA7JSK',20161113,1040,'宮城県気仙沼市','気仙沼市御崎岬',144,'FM',59,59),(25,'JI1XRF','JE1JMV',20161114,1642,'川崎市麻布区','東京都世田谷区',430,'FM',59,55),(26,'JI1XRF','7M4ALV',20161114,1708,'神奈川県横浜市港北区','東京都世田谷区',430,'FM',55,55),(27,'JI1XRF','7N1GER',20161114,1717,'神奈川県川崎市多摩区','東京都世田谷区',430,'FM',59,59),(28,'JI1XRF','JI1UVB',20161114,2220,'神奈川県横浜市戸塚区','東京都世田谷区',430,'FM',43,53),(29,'JI1XRF','JF1TJD',20161114,2224,'神奈川県川崎市宮前区','東京都世田谷区',430,'FM',55,55),(30,'JI1XRF','JM1RMI',20161115,2301,'東京都世田谷区','東京都世田谷区',430,'FM',53,59),(31,'JI1XRF','JS6SRY/1',20161115,2310,'JM1RMIと同様','東京都世田谷区',430,'FM',53,59),(32,'JI1XRF','JA8BRV/1',20161115,2315,'埼玉県桶川市','東京都世田谷区',430,'FM',59,59),(33,'JI1XRF','JS1MBH',20161116,1441,'東京都世田谷区','東京都世田谷区',430,'FM',55,59),(34,'JI1XRF','JI1LBQ',20161116,1445,'埼玉県秩父郡東秩父村','東京都世田谷区',430,'FM',43,49),(35,'JI1XRF','JA1XZO',20161116,1501,'東京都中野区','東京都世田谷区',430,'FM',53,59),(36,'JI1XRF','JH1DDC',20161117,1540,'東京都目黒区祐天寺','東京都世田谷区',430,'FM',59,59),(37,'JI1XRF','JA1YGR',20161117,1650,'東京都豊島区','東京都世田谷区',430,'FM',51,51),(38,'JI1XRF','8N120ICT',20161117,2253,'東京都小金井市','東京都世田谷区',430,'FM',53,53),(39,'JI1XRF','JK1XMR',20161118,1051,'神奈川県相模原市南区','東京都世田谷区',430,'FM',59,59),(40,'JI1XRF','JN1VSN',20161118,1100,'東京都中野区荻窪','東京都世田谷区',430,'FM',53,55),(41,'JI1XRF','JS1ETG/1',20161118,11,'東京都武蔵野市','東京都世田谷区',430,'FM',53,55),(42,'JI1XRF','JN1IKT',20161118,1720,'神奈川県綾瀬市','東京都世田谷区',430,'FM',52,55),(43,'JI1XRF','JP1RBA',20161118,1745,'東京都板橋区','東京都世田谷区',430,'FM',43,59),(44,'JI1XRF','JF1VJS',20170204,1441,'東京都世田谷区','東京都世田谷区',50,'FM',59,59),(45,'JI1XRF','JM1WOX',20170204,1719,'栃木県佐野市','東京都世田谷区',430,'FM',53,53),(46,'JI1XRF','7L1QAD',20170205,1320,'東京都港区','東京都世田谷区',430,'FM',59,59),(47,'JI1XRF','JN1IKT',20161119,637,'神奈川県綾瀬市','東京都世田谷区',430,'FM',53,55),(48,'JI1XRF','JJ1RWL',20161119,2207,'東京都大田区','東京都世田谷区',430,'FM',57,57),(49,'JI1XRF','JA1NOJ',20161119,2230,'神奈川県川崎市中原区','東京都世田谷区',430,'FM',59,59),(50,'JI1XRF','',201611,0,'東京都世田谷区','東京都世田谷区',430,'FM',59,59),(51,'JI1XRF','JI1WPO',20161119,2320,'東京都世田谷区','東京都世田谷区',430,'FM',59,59),(52,'JI1XRF','JO1KBQ/1',20161120,928,'栃木県日光市','東京都世田谷区',430,'FM',55,55),(53,'JI1XRF','JH1WYC',20161122,2129,'東京都昭島市','東京都世田谷区',430,'FM',55,55),(54,'JI1XRF','JF1TIB',20161122,2125,'神奈川県横須賀市','東京都世田谷区',430,'FM',59,59),(55,'JI1XRF','JA1KIQ',20161125,1718,'東京都大田区','東京都世田谷区',430,'FM',55,59),(56,'JI1XRF','7N2GKJ',20161125,1739,'東京都府中市','東京都世田谷区',430,'FM',55,59),(57,'JI1XRF','JJ1TTU',20161125,1820,'東京都練馬区','東京都世田谷区',430,'FM',59,59),(58,'JI1XRF','JG1TAP',20170206,2210,'東京都八王子市','東京都世田谷区',430,'FM',59,59),(59,'JI1XRF','JQ1JXC',20170206,2239,'東京都小平市','東京都世田谷区',430,'FM',53,52),(60,'JI1XRF','7M3URL',20170206,2300,'東京都立川市','東京都世田谷区',430,'FM',59,59),(61,'JI1XRF','JR1MVA',20170208,1643,'埼玉県東松山市','東京都世田谷区',430,'SSB',51,51),(62,'JI1XRF','JA0DSI/1',20170208,2101,'東京都大田区','東京都世田谷区',430,'SSB',59,59),(63,'JI1XRF','JF1VJS',20170210,1353,'東京都世田谷区','東京都世田谷区',50,'FM',59,59),(64,'JI1XRF','JJ1JCN',20170211,130,'東京都世田谷区','東京都世田谷区',433.28,'FM',59,59),(65,'JI1XRF','JJ1BFU',20170211,130,'東京都世田谷区松原','東京都世田谷区',433.28,'FM',59,59),(66,'JI1XRF','JH0IKP/1',20170212,820,'東京都文京区','東京都世田谷区',430,'FM',59,59),(67,'JI1XRF','JH4GXE/1',20170212,828,'神奈川県川崎市高津区','東京都世田谷区',430,'FM',53,59),(68,'JI1XRF','7N4MGP',20170212,836,'神奈川県川崎市幸区','東京都世田谷区',430,'FM',59,59),(69,'JI1XRF','JP1LRT',20170212,855,'東京都杉並区','東京都世田谷区',430,'FM',59,59),(70,'JI1XRF','JH1JQS',20170212,912,'東京都八王子市','東京都世田谷区',430,'FM',59,59),(71,'JI1XRF','JA1OGR',20170212,922,'神奈川県横須賀市','東京都世田谷区',430,'FM',55,57),(72,'JI1XRF','JA9TOZ/1',20170212,935,'東京都世田谷区松原','東京都世田谷区',430,'FM',59,59),(73,'JI1XRF','JJ1WVU/1',20170212,947,'東京都多摩市','東京都世田谷区',430,'FM',59,59),(74,'JI1XRF','8J1TGU',20170213,29,'東京都小金井市','東京都世田谷区',430,'FM',53,41),(75,'JI1XRF','JA1GLM',20170215,2356,'東京都世田谷区','東京都世田谷区',7,'SSB',59,59),(76,'JI1XRF','JA1NEJ',20170216,925,'東京都世田谷区','東京都世田谷区',7,'SSB',59,59),(77,'JI1XRF','JA1CIP/1',20170216,949,'埼玉県比企郡ときがわ町','東京都世田谷区',50,'SSB',53,57),(78,'JI1XRF','JA2GEJ',20170216,1533,'静岡県浜松市西区','東京都世田谷区',7,'SSB',59,58),(79,'JI1XRF','JF7GQI/7',20170217,1021,'福島県白河市','東京都世田谷区',7,'SSB',59,58),(80,'JI1XRF','JA1SBC/1',20170219,1043,'埼玉県秩父郡東秩父村','東京都世田谷区',430,'SSB',41,55),(81,'JI1XRF','JJ1SWI/1',20170219,1148,'東京都青梅市','東京都世田谷区',430,'A',59,59),(82,'JI1XRF','JH1OFL',20170219,2307,'茨城県つくばみらい市','東京都世田谷区',430,'FM',53,53),(83,'JI1XRF','JH1FAB',20170219,2315,'東京都板橋区','東京都世田谷区',430,'FM',53,53),(84,'JI1XRF','JH1JQZ',20170222,1431,'東京都八王子市','神奈川県愛甲郡清川村',430,'FM',59,59),(85,'JI1XRF','JI1VAE/1',20170222,1516,'神奈川県綾瀬市','神奈川県愛甲郡清川村',430,'FM',59,59),(86,'JI1XRF','JP1IXV',20170222,1522,'神奈川県海老名市','神奈川県愛甲郡清川村',430,'FM',59,59),(87,'JI1XRF','JH1WYC/1',20170222,1528,'神奈川県相模原市緑区','神奈川県愛甲郡清川村',430,'FM',51,53),(88,'JI1XRF','JH1EAW',20170222,1535,'神奈川県相模原市緑区','神奈川県愛甲郡清川村',430,'FM',55,55),(89,'JI1XRF','JF1LJD',20170222,1541,'神奈川県座間市','神奈川県愛甲郡清川村',430,'FM',59,59),(90,'JI1XRF','JH1KKG',20170222,1548,'神奈川県横浜市港北区','神奈川県愛甲郡清川村',430,'FM',53,53),(91,'JI1XRF','JH1GTF',20170222,1552,'神奈川県相模原市南区','神奈川県愛甲郡清川村',430,'FM',55,55),(92,'JI1XRF','7N3XQC',20170222,1556,'東京都八王子市','神奈川県愛甲郡清川村',430,'FM',51,59),(93,'JI1XRF','JA7EUH',20170223,1014,'岩手県','東京都世田谷区',7,'SSB',45,55),(94,'JI1XRF','JA1RFJ',20170223,1021,'東京都渋谷区','東京都世田谷区',7,'SSB',59,59),(95,'JI1XRF','JM1HUB',20170223,1023,'???','東京都世田谷区',7,'SSB',45,59),(96,'JI1XRF','7M1UBW/1',20170223,1326,'茨城県水戸市','東京都世田谷区',7,'SSB',59,59),(97,'JI1XRF','JA1KMZ',20170223,1332,'栃木県宇都宮市','東京都世田谷区',7,'SSB',59,59),(98,'JI1XRF','JI1XRF',20170227,2249,'東京都テスト','東京都世田谷区',7,'SSB',59,59);
+/*!40000 ALTER TABLE `qsos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sessions` (
+  `id` varchar(64) NOT NULL,
+  `station` varchar(10) NOT NULL,
+  `limit` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sessions`
+--
+
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+INSERT INTO `sessions` VALUES ('11617f6c153dc3d1d80d88fe938efdd8ed4bed434f075cd3cf071290e066f051','JI1XRF',1486787254),('161286b42d712a31ed7d07d875e008cda232b0dce5f15b444c4f552b8ead4a5e','JI1XRF',1488759657),('211a6d0dc7b0b425fa05fa835bd8a05ad44579a1f313396f7cca3b15d058886c','JI1XRF',1486873216),('4f2eb21400a204a526a150717c838a3292c36a90da224e619d79267b1ced5d4a','JI1XRF',1487517764),('503188681fe89f33a4ce2ba53120eb92c0ce50a116988286767a6d9634808dad','JI1XRF',1487594236),('848e2cc1c4ab81cdf8754e9315a64ce95187346f9814513e48d02a5fc0dd878b','JI1XRF',2147483647),('acc80d3c3da830eb60cfe4880b3da21a778f800d51dcf25104b020a108e61e5d','JI1XRF',1487930687),('b521a8fb1733e23c08c53ea5f90e3a9cbbc98590eb9fd495e628b2afa716ba79','JI1XRF',1488305240),('bb92f7b27f14ef4f01ac0d82bb293c82e27ca30fc1ccbe044dd8ea0d0ad3e0e9','JI1XRF',1486537859);
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stations`
+--
+
+DROP TABLE IF EXISTS `stations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stations` (
+  `callsign` varchar(10) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `email` varchar(512) DEFAULT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`callsign`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stations`
+--
+
+LOCK TABLES `stations` WRITE;
+/*!40000 ALTER TABLE `stations` DISABLE KEYS */;
+INSERT INTO `stations` VALUES ('JI1XRF','a670fbf3abc5cdcfc00892c2518564761d56440f7f0e34d6b1b3d82739e0badf','chigakuishi.soft@gmail.com','小林怜央');
+/*!40000 ALTER TABLE `stations` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-02-27 22:51:18

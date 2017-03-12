@@ -11,7 +11,8 @@
     <center>
       <h1>データ詳細</h1>
       <hr>
-      <input type="button" value="データ一覧ページに戻る" onclick="location.href='index.html'"></br>
+      <input type="button" value="データ一覧ページに戻る" onclick="location.href='index.html'"></br></br>
+      <input type="button" value="データ入力ページへ行く" onclick="location.href='input.html'"></br>
       <table border="1" id="datatable">
         <tr>
           <th>日付</th><th>時間</th><th>コールサイン</th><th>場所</th><th>周波数</th><th>変調方式</th><th>RST</th>
@@ -19,6 +20,10 @@
       </table>
       <table border="1" id="detail">
       </table>
+      <br>
+      <button onClick="deleteQso(location.hash.substring(1))">削除</button>
+      <br>
+      <textarea rows="20" cols="50" id="data"></textarea>
     </center>
 	</body>
 </html>

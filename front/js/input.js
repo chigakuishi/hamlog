@@ -54,21 +54,63 @@ function useTmp(){
   }
   tmp=tmp.replace(/__today__/,String(now.getFullYear()+( "0"+( now.getMonth()+1 ) ).slice(-2)+("0"+now.getDate() ).slice(-2)));
   tmp=tmp.replace(/__now__/,String(("0"+now.getHours()).slice(-2)+("0"+now.getMinutes()).slice(-2) ));
-  console.log(edit+tmp);
   $("#data").val(edit+tmp);
   $("#data").focus();
 }
 
-function openButton(){
+function enterText(show){
   localStorage.edit=$("#data").val();
-	document.getElementById('buttons').style.display="block";	
+  document.getElementById('buttons').style.display="block";	
 	document.getElementById('save').disabled="disabled";
 	document.getElementById('convert').disabled ="";	
   waitJson="";
+  if(!show){
+    var endLinePoint = $("#data").val().indexOf("\n",$("#data").get(0).selectionStart);
+    endLinePoint = endLinePoint == -1?$("#data").val().length:endLinePoint;
+    var nowEditLine = $("#data").val().substr(0,endLinePoint).split(/\n/).pop();
+    var match = nowEditLine.match(/^cs:([^\/]*)(?:\/\S*)*$/);
+    if(match){
+      var cs = match[1].toUpperCase();
+      searchCallsign(cs);
+    }
+  }
 }
-
-function getCallsign(){
-  
+function showFrame(url){
+  $("#frame").attr("src",url);
+}
+function searchCallsign(cs){
+  $.ajax({
+    type:"post",	
+    url:"../api/search.php",	
+    data:JSON.stringify({"session":getCookie("session"),"callsign":cs}),	
+    contentType: 'application/json',	
+    dataType: "json",	
+    success: function(obj) {	
+      if (obj.status) {
+        $("#datatable").html("<tr><th>日付</th><th>時間</th><th>コールサイン</th><th>場所</th><th>周波数</th><th>変調方式</th><th>RST</th><th>詳細</th></tr>");
+        for(var i=0;i<obj.data.length;i++){
+          $("#datatable").append(
+            "<tr>"+
+            "<td>"+obj.data[i].main.date+"</td>"+
+            "<td>"+obj.data[i].main.time+"</td>"+
+            "<td>"+obj.data[i].main.callsign+"</td>"+
+            "<td>"+obj.data[i].main.qth+"</td>"+
+            "<td>"+obj.data[i].main.band+"</td>"+
+            "<td>"+obj.data[i].main.mode+"</td>"+
+            "<td>"+obj.data[i].main.my_rst+"/"+obj.data[i].main.rst+"</td>"+
+            "<td><button onClick='showFrame(\"show.html?id="+obj.data[i].main.id+"#"+obj.data[i].main.id+"\")' target='info-frame'> Click </a></td>"+
+            "</tr>"
+          );
+        }
+      }else{
+        alert("エラーです．やり直してください．");
+      }
+    },
+    error: function(err) {	
+      alert("エラーです．やり直してください．");
+      console.log(err);
+    } 
+  });
 }
 
 function changeData(){ 
@@ -77,14 +119,14 @@ function changeData(){
 	document.getElementById('convert').disabled ="disabled";	
 	document.getElementById('save').disabled ="";	
 	sentences = document.getElementById('data').value;
-	sentences = sentences.replace(/([1-5][0-9])\/([1-5][0-9])/g,(m,p1,p2)=>(
+	sentences = sentences.replace(/^([1-5][0-9])\/([1-5][0-9])$/g,(m,p1,p2)=>(
     "rst:"+p1+"\nmy_rst:"+p2
   ));
   sentences = sentences.replace(/cs:/g,"callsign:");
 	document.getElementById('data').value = sentences;
   dataList = sentences.split(/\n/);
 	for(var i=0;i<dataList.length;i++){
-    if(dataList[i]=="") continue;
+    if(dataList[i]=="" && dataList.length-1 != i) continue;
 		if(dataList[i].match(/^-{3,}$/) || dataList.length-1 == i){	//"---"で区切る
       obj.main.my_qth = obj.main.my_qth ||def.main.my_qth;
       obj.main.qth = obj.main.qth ||def.main.my_qth;
@@ -94,7 +136,7 @@ function changeData(){
         && obj.main.band && obj.main.mode && obj.main.rst &&obj.main.my_rst
       )){
         alert("不足事項があります"+JSON.stringify(obj));
-        openButton();
+        enterText();
         return;
       }
 
@@ -156,7 +198,6 @@ function changeData(){
   var jsonObj={};
   jsonObj["data"]=calls;
   jsonObj["session"]=getCookie("session");
-	console.log(JSON.stringify(jsonObj));
   waitJson=jsonObj;
 }
 
