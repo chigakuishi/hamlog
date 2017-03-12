@@ -131,9 +131,10 @@ function changeData(){
       obj.main.my_qth = obj.main.my_qth ||def.main.my_qth;
       obj.main.qth = obj.main.qth ||def.main.my_qth;
       obj.main.callsign = obj.main.callsign.toUpperCase();
+      obj.main.date = obj.main.date || sday;
       sday = obj.main.date;
       if(!(obj.main.my_qth && obj.main.qth && obj.main.callsign && obj.main.callsign && obj.main.time
-        && obj.main.band && obj.main.mode && obj.main.rst &&obj.main.my_rst
+        && obj.main.band && obj.main.mode && obj.main.rst &&obj.main.my_rst && obj.main.date
       )){
         alert("不足事項があります"+JSON.stringify(obj));
         enterText();
