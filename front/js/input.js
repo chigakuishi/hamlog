@@ -116,6 +116,12 @@ function searchCallsign(cs){
 function changeData(){ 
   var sday;
   calls=[];
+  obj ={
+    "main":{	/*必須の項目*/ },
+    "option":{	/*よくある項目*/ },
+    "other":{	/*その他の項目 "work":str */ },
+    "other_free":[	/*単語など "","","","","" */	]
+  };
 	document.getElementById('convert').disabled ="disabled";	
 	document.getElementById('save').disabled ="";	
 	sentences = document.getElementById('data').value;
